@@ -51,7 +51,6 @@ body {
 }
     
 #main {
-    float: left;
     height:100%;
     background-color: #CCCCFF;
     border: 10px double #ffffff;
@@ -74,7 +73,6 @@ body {
 .portfolioEntry p {
     padding-right: 10px;
     float:left;
-
     width: 60%;
     text-align: right;
     padding-left: 10px;
