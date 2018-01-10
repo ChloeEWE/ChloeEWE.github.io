@@ -1,0 +1,144 @@
+/***** FONT THINGS
+*/
+h1, h2, h3, h4, h5, a {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+a{
+color:black;
+font-size: 20px;
+text-decoration: none
+    
+}
+
+
+p {
+    padding-left: 10px;
+    font-family: 'Esteban', sans-serif;
+    color: #303030;
+}    
+
+
+/***** LAYOUT THINGS
+*/
+
+h2 {
+padding-left: 10px;
+font-weight: 500;
+font-size: 160%;
+text-align: center;
+padding-right: 40px;
+}
+
+h1 {
+    text-align: right;
+    padding-right: 15%;
+    font-size: 300%;
+    margin: 20px;
+    font-weight: 800;
+} 
+
+
+html {
+    height: 100%;
+   align-content: right;
+}
+
+body {
+    height: 100%;
+    max-width: 1250px;
+    min-width: 1100px;
+}
+    
+#main {
+    float: left;
+    height:100%;
+    width:65%;
+    background-color: #CCCCFF;
+    border: 10px double #ffffff;
+    min-width: 650px;
+    padding: 7px;
+    margin:20px 20px 0px 10px;
+}    
+
+#side {
+    background-color: #9999cc;
+    border: 10px double #ffffff;
+    float:right;
+    width: 20%;
+    height: 70%;
+    margin-right: 5%;
+    margin-top: 50px;
+    margin-bottom: 250px;
+    padding: 5px;
+}  
+
+
+/**RAS refers to Right Aligned Section
+*/
+.Ras{
+    margin-bottom:30px;
+    margin-top: 15px;
+}
+
+/**LAS refers to Left Aligned Section
+*/
+.Las{
+     margin-bottom:30px;
+    margin-top: 15px;
+}
+
+
+
+.portimg {
+    border: 7px double white;   
+    height: 160px;
+}
+
+.Ras p {
+    padding-right: 10px;
+    float:left;
+
+    width: 60%;
+    text-align: right;
+    padding-left: 10px;
+}
+
+.Ras img {
+    float: right;
+    margin-right: 15px;
+    
+}
+
+.Las p {
+    padding-left: 10px;
+    padding-right: 10px;
+    float:right;
+    width: 60%;
+    text-align: left;
+}
+
+.Las img{
+    float: left;
+    margin-left: 15px;
+    
+}    
+
+
+#space{
+    height:50%;
+}
+
+
+section {
+    
+    overflow:auto;
+    
+}
+
+/***** hoverhoverhover
+*/
+
+a:hover {
+    color: white;
+}
