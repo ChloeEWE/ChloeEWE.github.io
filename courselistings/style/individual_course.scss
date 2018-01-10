@@ -1,0 +1,71 @@
+
+.course{
+            .course_name{
+                font-size: 3em;
+                float:left;
+                display: block;
+                width: 100%;
+                border-bottom: 5px solid #333;
+            }  
+ 
+            margin-top: 10px;
+            padding-top: 10px;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 10px;
+
+            .course_header{
+                .course_subtitle_section{
+                    display: block;
+                    width: 100%;
+                    .course_basic_info{
+                        display: inline-block;
+                        .course_title_line{
+                            width: 100%;
+                        }
+                        .course_credits{
+                            font-size: .8em;
+                            font-weight:500;
+                            color: #777;
+                            line-height: 0px;
+                            margin-top: 0px;
+                        }
+                        }
+                    .course_favorite_btn{
+                        display: inline-block;
+                        float:right;
+                    } 
+                }
+                .course_details{
+                    width: 100%;
+                }
+            }
+            .course_section_list{
+                display: inline-block;
+                width: 100%;
+                padding-left: 0px;
+                td {
+                    padding-bottom: 0px;
+                }
+                
+                .course_section{
+                    .orange_button{
+                        margin: 5px;
+                    }
+                    Border-top: 5px solid #999;
+                    margin-top: 10px;
+                    width: 100%;
+                    table{
+                        width: 100%;
+                        td{width: 25%; }
+                        padding: 0px;
+                    }
+                    tr{
+                        width:100%;
+                        padding: 10px;
+                        
+                    }
+                    
+                }
+            }
+        }

@@ -1,0 +1,52 @@
+.course {
+  margin-top: 10px;
+  padding-top: 10px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px; }
+  .course .course_name {
+    font-size: 3em;
+    float: left;
+    display: block;
+    width: 100%;
+    border-bottom: 5px solid #333; }
+  .course .course_header .course_subtitle_section {
+    display: block;
+    width: 100%; }
+    .course .course_header .course_subtitle_section .course_basic_info {
+      display: inline-block; }
+      .course .course_header .course_subtitle_section .course_basic_info .course_title_line {
+        width: 100%; }
+      .course .course_header .course_subtitle_section .course_basic_info .course_credits {
+        font-size: .8em;
+        font-weight: 500;
+        color: #777;
+        line-height: 0px;
+        margin-top: 0px; }
+    .course .course_header .course_subtitle_section .course_favorite_btn {
+      display: inline-block;
+      float: right; }
+  .course .course_header .course_details {
+    width: 100%; }
+  .course .course_section_list {
+    display: inline-block;
+    width: 100%;
+    padding-left: 0px; }
+    .course .course_section_list td {
+      padding-bottom: 0px; }
+    .course .course_section_list .course_section {
+      Border-top: 5px solid #999;
+      margin-top: 10px;
+      width: 100%; }
+      .course .course_section_list .course_section .orange_button {
+        margin: 5px; }
+      .course .course_section_list .course_section table {
+        width: 100%;
+        padding: 0px; }
+        .course .course_section_list .course_section table td {
+          width: 25%; }
+      .course .course_section_list .course_section tr {
+        width: 100%;
+        padding: 10px; }
+
+/*# sourceMappingURL=individual_course.css.map */
