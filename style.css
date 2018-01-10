@@ -74,28 +74,17 @@ body {
 }  
 
 
-/**RAS refers to Right Aligned Section
-*/
-.Ras{
+.portfolioEntry{
     margin-bottom:30px;
     margin-top: 15px;
 }
-
-/**LAS refers to Left Aligned Section
-*/
-.Las{
-     margin-bottom:30px;
-    margin-top: 15px;
-}
-
-
 
 .portimg {
     border: 7px double white;   
     height: 160px;
 }
 
-.Ras p {
+.portfolioEntry p {
     padding-right: 10px;
     float:left;
 
@@ -104,25 +93,11 @@ body {
     padding-left: 10px;
 }
 
-.Ras img {
+.portfolioEntry img {
     float: right;
     margin-right: 15px;
     
-}
-
-.Las p {
-    padding-left: 10px;
-    padding-right: 10px;
-    float:right;
-    width: 60%;
-    text-align: left;
-}
-
-.Las img{
-    float: left;
-    margin-left: 15px;
-    
-}    
+}   
 
 
 #space{
