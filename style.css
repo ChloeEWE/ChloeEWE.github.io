@@ -61,17 +61,6 @@ body {
     margin:20px 20px 0px 10px;
 }    
 
-#side {
-    background-color: #9999cc;
-    border: 10px double #ffffff;
-    float:right;
-    width: 20%;
-    height: 70%;
-    margin-right: 5%;
-    margin-top: 50px;
-    margin-bottom: 250px;
-    padding: 5px;
-}  
 
 
 .portfolioEntry{
