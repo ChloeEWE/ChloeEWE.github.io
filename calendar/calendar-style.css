@@ -1,0 +1,242 @@
+h1{
+    text-align:center;
+    margin: 1em;
+}
+
+.addEvent {
+    text-align:center;
+    background-color: #99FF99;
+    border: 2px solid #59CF59;
+    color: #398A39;
+}
+
+.deleteEvent{
+    text-align:center;
+    background-color: #ff9999;
+    border: 2px solid #CF5959;
+    color: #8A3939;
+}
+
+.editEvents{
+    text-align:center;
+    background-color: #ffff99;
+    border: 2px solid #CFCF59;
+    color: #8A8A39;
+}
+.viewTasks{
+    text-align:center;
+    background-color: #99ffff;
+    border: 2px solid #59CFCF;
+    color: #398A8A;
+}
+
+
+
+.userChange {
+    text-align:center;
+    background-color: #9999FF;
+    border: 2px solid #5959CF;
+    color: #39398A;
+    border-radius: .5em;
+    padding: 5px;
+    float: left;
+}
+
+.selected {
+    
+    border-width: 4px !important;
+}
+
+.temp  {
+    background-color:#99FF99;
+}
+
+.tempDel {
+    background-color:#FF9999;
+}
+.tempEd {
+    background-color:#EEEEEE;
+    border: 1px solid black;
+}
+
+.tempEdit {
+    background-color:#FFFFEE;
+    border: 1px solid black;
+}
+.submitChange {
+    border-radius: .5em;
+    padding: 5px;
+    margin: 5px;
+}
+
+.directions{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+
+table{
+    border-collapse: collapse;
+    width:100%;
+    height:80%;
+    table-layout:fixed;
+}
+table, th, td{
+    border: 1px solid black;
+    margin-top: 1em;
+}
+td{
+    height: 100px;
+    vertical-align:top;
+}
+
+td span.eventTitle{
+    font-weight: 900;
+}
+
+p.task .eventTitle{
+    color: #59CFCF;
+    
+} 
+
+p.task.completed .eventTitle{
+    color:#DDDDDD;
+} 
+
+td p.completed {
+    color:#666;
+
+}
+
+p.task::before{
+    color:#888;
+    content: "[  ] ";
+    display: inline-block;
+    
+}
+
+p.task.completed::before{
+    color:#888;
+    content: "[x] ";
+    display: inline-block;
+    
+}
+
+p.task::before{
+    color:#f33;
+    content: "[  ] ";
+    display: inline-block;
+    
+}
+
+p.task.passed .eventTitle{
+    color:#FF5555;
+}
+
+p.task.passed::after{
+    color:#FF5555;
+    content: "overdue!";
+    display: inline-block;
+}
+
+
+.dayNum{
+    vertical-align:top;
+    width: inherit;
+    display: block;
+    padding-top:.2em;
+    padding-bottom:.2em;
+    padding-left: .2em;
+    font-family:  sans-serif;
+}
+#last-month{
+    float:left;
+}
+#next-month{
+    float:right;
+}
+.hide{
+    visibility:hidden;
+    display: none;
+}
+
+body{
+    min-width: 800px;
+    max-width: 1150px;
+    margin: auto;
+    margin-top: 0px;
+    background-color: white;
+}
+
+html{
+    color: #444;
+}
+.modeChange{
+    float:right;
+    border-radius: .5em;
+    padding: 5px;
+}
+
+.addingEditor{
+    background-color: #DDFFDD;
+    border-color: #59CF59;
+}
+
+.viewingEditor{
+    background-color: #EEEEEE;
+    border-color: #BBBBBB;
+}
+
+.deletingEditor{
+    background-color: #FFDDDD ;
+    border-color:#CF5959;
+}
+
+.editingEditor{
+    background-color: #FFFFDD ;
+    border-color:#CFCF59;
+}
+
+.taskEditor{
+    background-color: #DDFFFF ;
+    border-color:#59CFCF;
+}
+
+#eventEditor{
+    margin:auto;
+    margin-top: 0px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align:center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+}
+
+#eventEditor p{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+
+ .viewOnly{
+    text-align:center !important;
+    background-color: #DDDDDD !important;
+    border-width: 2px;
+    border-style: solid !important;
+    border-color:#BBBBBB !important;
+    color: #888888 !important;
+}
+
+.taskListing .eventTitle{
+    
+    font-weight: 900;
+    margin-right: 2em;
+    width: 10em;
+    display: inline-block;
+}
+.completed span{
+    
+    text-decoration: line-through;
+}
+
