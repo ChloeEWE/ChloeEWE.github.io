@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Creation</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $( document ).ready(function(){
+        
+        
+        function createUser() {
+
+            $.ajax({
+                url: "create-user.php",
+                data: {
+                    username: $( "#user" ).val(),
+                    password: $( "#pass" ).val()
+                },
+                type: "POST",
+                dataType: "json",
+            })
+            .done( function(json) {
+                if(json.success)
+                {
+                    $( "#update-message" ).text("A new user was created!");
+                    document.cookie = "username="+json.username+";path=/";
+                    document.cookie = "token="+json.token+";path=/";
+                } else
+                {
+                    $( "#update-message" ).text(json.message);
+                }
+            })
+          .fail(function( xhr, status, errorThrown ) {
+            alert( "Sorry, there was a problem!" );
+            console.log( "Error: " + errorThrown );
+            console.log( "Status: " + status );
+            console.dir( xhr );
+          })
+          .always(function( xhr, status ) {
+            ///alert( "The request is complete!" );
+          });
+
+        }
+
+        $( "#create" ).click(createUser);
+    });
+
+
+    </script>
+</head>
+<body>
+    
+    <h1>Create a new user</h1>
+    
+    <label for="user">Username: </label>
+    <input type="text" name="username" id="user" maxlength="50" required='required' /><br>
+    <label for="pass">Password: </label>
+    <input type="password" name="password" id="pass" required='required' /><br>
+    <input id="create" type="submit" value="Create!" />
+    <p id='update-message'></p>
+    <a id="back-button" href="calendar.html">Back to home!</a>
+        
+</body>
+</html>

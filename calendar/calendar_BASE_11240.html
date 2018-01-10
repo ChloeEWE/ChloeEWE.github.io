@@ -13,7 +13,6 @@
     var month = monthSeed.getMonth();
     var username = "";
     var token = "";
-    var dateNum = 0;
 
     $( document ).ready(function(){
 //<<<<<<< HEAD
@@ -63,8 +62,6 @@
         $("#next-month").on("click",function(){
             changeMonth("next");
         });
-
-        
         
    });
 //>>>>>>> 138c9e7f6e8bf02c5624c435e84cf2472cd873f1
@@ -159,7 +156,7 @@
 
         var dateHelper = this.getDate() - this.getDay();
 
-        if(dateHelper <= 1) return 0;
+        if(dateHelper <= 0) return 0;
         else if(dateHelper <= 8) return 1;
         else if(dateHelper <= 15) return 2;
         else if(dateHelper <= 22) return 3;
@@ -170,35 +167,58 @@
 //<<<<<<< HEAD
 //=======
 //>>>>>>> cb505cefff0940b8b696b705a6cbc644a8bf5d30
-    function logoutMode(){
-        $("#current_mode").text("Please Login");
-        $("#current_mode").addClass("viewOnly");
-        $("#current_mode").removeClass("deleteEvent");
-        $("#current_mode").removeClass("addEvent");
-        $("#eventEditor").addClass("hide");
-        $(".modeChange").addClass("viewOnly");
-    }
+    
     function addMode(){
-
-        addFunctionality();
+        $("#current_mode").text("Add Events");
+        $("#current_mode").addClass("addEvent");
+        $("#current_mode").removeClass("viewOnly");
+        $("#current_mode").removeClass("deleteEvent");
+        
+        //toggles button appearance
+        $("#AddEvent").addClass("selected");
+        $("#DeleteEvent").removeClass("selected");
+        $("#ViewEvents").removeClass("selected");
+        
+        //allows event adding
+        $("span.dayNum:not(:empty)").parent().on("click",function(){
+            var dateNum = $(this).text();
+            //alert(dateNum);
+            $(".temp").removeClass("temp");
+            $(this).addClass("temp");
+        });
+        
 
     }
     function viewMode(){
+        $("#current_mode").text("View Events");
+        $("#current_mode").addClass("viewOnly");
+        $("#current_mode").removeClass("deleteEvent");
+        $("#current_mode").removeClass("addEvent");
         
-//<<<<<<< HEAD
+        //toggles button appearance
+        $("#ViewEvents").addClass("selected");
+        $("#AddEvent").removeClass("selected");
+        $("#DeleteEvent").removeClass("selected");
         
-        //switches buttons and functionality to view mode
-        viewFunctionality();
-
-//>>>>>>> 8dd535b36bbe8b9764467ead905adbb6184866ce
+        //stops event adding
+        $("span.dayNum:not(:empty)").parent().off();
+        $(".temp").removeClass("temp");
     }
     function deleteMode(){
-
-//<<<<<<< HEAD
+        $("#current_mode").text("Delete Events");
+        $("#current_mode").addClass("deleteEvent");
+        $("#current_mode").removeClass("viewOnly");
+        $("#current_mode").removeClass("addEvent");
         
-        deleteFunctionality();
-//=======
- 
+        //toggles button appearance
+        $("#DeleteEvent").addClass("selected");
+        $("#AddEvent").removeClass("selected");
+        $("#ViewEvents").removeClass("selected");
+
+        $("span.dayNum:not(:empty)").parent().off();
+        $(".temp").removeClass("temp");
+//<<<<<<< HEAD
+//<<<<<<< HEAD
     }
 //=======
 
@@ -232,8 +252,8 @@
                     token = json.token;
                     $("p#welcome").text("Welcome, "+username);
                     viewEvents();
-                    $(".modeChange").removeClass("viewOnly");
-                    $("#ViewEvents").addClass("viewOnly");
+                    $("#DeleteEvent").removeClass("viewOnly");
+                    $("#AddEvent").removeClass("viewOnly");
                     $("#processUser").html('<input id="logout" class="userChange" type="submit" value="Logout :(" />');
                     $("#logout").click(logout);
                     $("#AddEvent").on("click", function(){
@@ -245,13 +265,6 @@
                     $("#DeleteEvent").on("click", function(){
                         deleteMode();
                     });
-                    $("#EditEvents").on("click", function(){
-                        editMode();
-                    });
-                    $("#ViewTasks").on("click", function(){
-                        taskMode();
-                    });
-                    viewMode();
                 } else
                 {
                     $( "#update-message" ).text("Something went wrong: " + json.message);
@@ -280,7 +293,6 @@
         })
 
         resetEvents();
-        clearEvents();
         $("#processUser").html(   ' <p id="update-message"></p>'+
             '<label for="user">Username: </label>'+
            ' <input type="text" name="username" id="user" maxlength="50" /><br>'+
@@ -290,52 +302,26 @@
         $("#createUser").on( "click",function(){ userProcess("create") } );
         $("#login").on("click",function(){ userProcess("login")} );
         $(".modeChange").off();
-        logoutMode();
     }
 
     function viewEvents(){
-        day = monthSeed.getFullYear()+"-"+(monthSeed.getMonth()*1+1)+"-"+monthSeed.getDate();
         if(username != "")
         {
             $.ajax({
                 url:"get-events.php",
                 data: {
-                    day: day,
+                    day: monthSeed,
                     token: token
                 },
                 type: "POST",
                 dataType: "json",
             })
             .done( function(json){
-                for(var i = 0; i < json.length; i++)
-                {
-                    event = "<p id='"+json[i].id+"' class='event'><span class='eventTitle'> "+json[i].title+" </span> :<span class='eventTime'> "+json[i].time+"</span></p>";
-                    eventYear=json[i].date.substring(0,4);
-                    eventMonth=json[i].date.substring(5,7);
-                    eventDay=json[i].date.substring(8);
-                    eventHours=json[i].time.substring(0,2);
-                    eventMinutes=json[i].time.substring(3,5);
-                    eventSeconds=json[i].time.substring(6);
-                    eventDate = new Date(eventYear,eventMonth-1,eventDay,eventHours,eventMinutes,eventSeconds);
-                    weekID = eventDate.whichWeek();
-                    dayOfWeek = eventDate.getDay();
-                    $("tr#week"+weekID+" td."+days[dayOfWeek]).append(event);
-                    if(json[i].istask == 'true') 
-                    {
-                       $("#"+json[i].id).addClass('task');
-                    }
-                    if(json[i].iscomplete == 'true') 
-                    {
-                       $("#"+json[i].id).addClass('completed');
-                    }
-                    else if(eventDate < new Date() )
-                    {
-                        $("#"+json[i].id).addClass('passed');
-                    }
-                    $("#"+json[i].id).append("<span class='hide eventDate'>"+json[i].date+"</span>");
-                    $("#"+json[i].id).append("<span class='hide eventTimeCreated'>"+json[i].timecreated+"</span>");
-                    $("#"+json[i].id).append("<span class='hide eventBlurb'>"+json[i].blurb+"</span>");
-                }
+                // for(/*stuff*/)
+                // {
+                //     event = "<span class=event>"+/*stuff*/+"</span>";
+                //     $(/*stuff*/).append(event);
+                // }
             })
             .fail(function( xhr, status, errorThrown ) {
                 //alert( "Sorry, there was a problem!" );
@@ -348,134 +334,6 @@
                 console.log(json);
             });
         }
-    }
-
-    function viewTasks(){
-        day = monthSeed.getFullYear()+"-"+(monthSeed.getMonth()*1+1)+"-"+monthSeed.getDate();
-        var jret = "";
-        if(username !== "")
-        {
-            $.ajax({
-                url:"view-tasks.php",
-                data: {
-                    day: day,
-                    token: token
-                },
-                type: "POST",
-                dataType: "json",
-            })
-            .done( function(json){
-                for(var i = 0; i < json.length; i++)
-                 {
-                      event = "<p id='list"+json[i].id+"' class='taskListing'><input id='completeTaskButton' class='submitChange editEvents' type='submit' value='Mark As Complete' /><span class='eventTitle'> "+json[i].title+" </span>  <span class='eventTime'> Due on: "+json[i].time+"</span></p>";
-                      eventYear=json[i].date.substring(0,4);
-                      eventMonth=json[i].date.substring(5,7);
-                      eventDay=json[i].date.substring(8);
-                      eventDate = new Date(eventYear,eventMonth-1,eventDay);
-                      weekID = eventDate.whichWeek();
-                      dayOfWeek = eventDate.getDay();
-
-                      $("#eventEditor").append(event);
-                      
-                    if(json[i].iscomplete == 'true') 
-                    {
-                       $("#list"+json[i].id).addClass('completed');
-                       $("#list"+json[i].id).children("#completeTaskButton").attr('value', 'Mark As Incomplete');
-                       $("#list"+json[i].id).children("#completeTaskButton").addClass('viewOnly');
-                    }
-                    else if(eventDate < new Date() )
-                    {
-                        $("#list"+json[i].id).addClass('passed');
-                    }
- 
-                 }
-                
-            })
-            .fail(function( xhr, status, errorThrown ) {
-                //alert( "Sorry, there was a problem!" );
-                console.log( "Error: " + errorThrown );
-                console.log( "Status: " + status );
-                console.dir( xhr );
-            })
-              .always(function( xhr, status, json ) {
-                //alert( "The request is complete!" );
-                console.log(json);
-                
-               
-            });
-            
-        }
-    }
-
-    function completeTask(){
-        var id=$("#eventEditor :first-child").attr('id').substr(13);
-        $.ajax({
-            url:"complete-task.php",
-            data: {
-                iscomplete: $("#complete").is(":checked"),
-                id: id,
-                token: token
-            },
-            type: "POST",
-            dataType: "json",
-        })
-        .done( function(json){
-            clearEvents();
-            viewEvents();
-        })
-        .fail(function( xhr, status, errorThrown ) {
-            alert( "Sorry, there was a problem!" );
-            console.log( "Error: " + errorThrown );
-            console.log( "Status: " + status );
-            console.dir( xhr );
-        })
-          .always(function( xhr, status, json ) {
-            //alert( "The request is complete!" );
-            console.log(json);
-        });
-
-    }
-
-    function editEvent(){
-       var day = monthSeed.getFullYear()+"-"+(monthSeed.getMonth()*1+1)+"-"+dateNum;
-       var id = $("p.tempEd").attr('id')
-       //alert("NO!");
-        $.ajax({
-                url:"change-events.php",
-                data: {
-                    day: day,
-                    token: token,
-                    id: id,
-                    title: $("#title").val() != "" ? $("#title").val() : $("#"+id+" .eventTitle").text(),
-                    time: $("#time").val() != "" ? $("#time").val() : $("#"+id+" .eventTime").text(),
-                    blurb: $("#blurb").val() != "" ? $("#blurb").val() : $("#"+id+" .eventBlurb").text()
-                },
-                type: "POST",
-                dataType: "json",
-            })
-            .done( function(json){
-                if(json.success)
-                {
-                    alert("YES!");
-                    clearEvents();
-                    viewEvents();
-                } else
-                {
-                    alert(json.message);
-                }
-                
-            })
-            .fail(function( xhr, status, errorThrown ) {
-                alert( "Sorry, there was a problem!" );
-                console.log( "Error: " + errorThrown );
-                console.log( "Status: " + status );
-                console.dir( xhr );
-            })
-              .always(function( xhr, status, json ) {
-                //alert( "The request is complete!" );
-                console.log(json);
-
-            });        
     }
 
     function clearEvents(){
@@ -483,78 +341,14 @@
         {
             for(var j = 0; j < 7; j++) //days
             {
-                $("tr#week"+i+" td."+days[j]+" .event").remove();
+                $("tr#week"+i+" td."+days[j]+" span.event").remove();
             }
         }
     }
 
     function makeEvent(){
-       var day = monthSeed.getFullYear()+"-"+(monthSeed.getMonth()*1+1)+"-"+dateNum;
-        $.ajax({
-                url:"create-events.php",
-                data: {
-                    day: day,
-                    token: token,
-                    title: $("#title").val(),
-                    time: $("#time").val(),
-                    blurb: $("#blurb").val(),
-                    istask: $("#task").is(":checked"),
-                },
-                type: "POST",
-                dataType: "json",
-            })
-            .done( function(json){
-                if(json.success)
-                {
-                    clearEvents();
-                    viewEvents();
-                } else
-                {
-                    alert(json.message);
-                }
-                
-            })
-            .fail(function( xhr, status, errorThrown ) {
-                alert( "Sorry, there was a problem!" );
-                console.log( "Error: " + errorThrown );
-                console.log( "Status: " + status );
-                console.dir( xhr );
-            })
-              .always(function( xhr, status, json ) {
-                //alert( "The request is complete!" );
-                console.log(json);
 
-            });
     }
-
-    function deleteEvent(){
-        $.ajax({
-                url:"delete-events.php",
-                data: {
-                    token: token,
-                    id: $(".tempDel")[0].id
-                },
-                type: "POST",
-                dataType: "json",
-            })
-            .done( function(json){
-                clearEvents();
-                viewEvents();
-            })
-            .fail(function( xhr, status, errorThrown ) {
-                alert( "Sorry, there was a problem!" );
-                console.log( "Error: " + errorThrown );
-                console.log( "Status: " + status );
-                console.dir( xhr );
-            })
-              .always(function( xhr, status, json ) {
-                //alert( "The request is complete!" );
-                console.log(json);
-
-            });
-    }
-
-
     // function deleteAllCookies() { //code taken from stack overflow: http://stackoverflow.com/questions/179355/clearing-all-cookies-with-javascript
     //     var cookies = document.cookie.split(";");
 
@@ -587,7 +381,9 @@
         $("p#welcome").text("");
 //=======
         viewMode();
-        $(".selected").removeClass("selected");
+        $("#DeleteEvent").removeClass("selected");
+        $("#DeleteEvent").addClass("viewOnly");
+        $("#AddEvent").removeClass("selected");
         $("#AddEvent").addClass("viewOnly");
         $("ViewEvents").addClass("selected");
 //>>>>>>> cb505cefff0940b8b696b705a6cbc644a8bf5d30
@@ -607,29 +403,27 @@
     <h1>The Javascript Isn't Working</h1>
     <h2 id="current_mode"></h2>
     
-    <div id="eventEditor" class="hide">    
-    
-    </div>
-    </br>
+
     <div id="processUser">
     <p id="update-message"></p>
     <label for="user">Username: </label>
     <input type="text" name="username" id="user" maxlength="50" /><br>
     <label for="pass">Password: </label>
     <input type="password" name="password" id="pass" /> <br>
-    
-    
     <input id = "login" class="userChange" type="submit" value="Log In!" /><input id="createUser" class="userChange" type="submit" value="Create New User!" />
     </div>
+    <div id="eventEditor" class="hide">    
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" maxlength="255" /><br>
+    <label for="time">What Time: </label>
+    <input type="time" name="time" id="time" /> <br>
+    <input id="createEvent" type="submit" value="Create your Event!" />
+    </div>
+    
 
-    
-    
     <input type="button" id="AddEvent" name = "AddEvent" class="modeChange addEvent" value="Add Event" />
-    <input type="button" id="EditEvents" name = "EditEvents" class="modeChange editEvents" value="Edit Events" />
-    <input type="button" id="ViewTasks" name = "ViewTasks" class="modeChange viewTasks" value="View Tasks" />
     <input type="button" id="ViewEvents" name = "ViewEvent"  class="modeChange viewOnly selected" value="View Events" />
     <input type="button" id="DeleteEvent" name = "DeleteEvent" class="modeChange deleteEvent" value="Delete Event" />
-   
     <table id="calendar">
     </table>
 
