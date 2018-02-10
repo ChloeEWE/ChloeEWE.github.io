@@ -26,3 +26,9 @@
   font-weight: bold;
 }
 
+#time_table tr {
+    height: 200px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
