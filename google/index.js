@@ -31,10 +31,10 @@ $(document).ready(function () {
 
 
 function initCalendar() {
-	for (var i = 0; i < 25; i++) {
-		var divide = Math.floor(i / 2) + 8;
+	for (var i = 0; i < 13; i++) {
+		var divide = Math.floor(i ) + 8;
 		var ampm = (i < 8) ? "A" : "P";
-		var mod = (i % 2 === 0) ? ":00" : ":30";
+		var mod = ":00";
 		divide = (divide > 12) ? (divide - 12) : (divide);
 
 		var time = divide.toString();
