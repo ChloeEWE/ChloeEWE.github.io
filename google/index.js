@@ -42,7 +42,7 @@ function initCalendar() {
 		// console.log(time);
 
 		$("#time_table")
-			.append('<tr class=' + time + '><td class="time">' + time + '</td><td class="M clickable"></td><td class="T clickable"></td><td class="W clickable"></td><td class="R clickable"></td><td class="F clickable"></td><td class="S clickable"></td>');
+			.append('<tr class=' + time + '><td class="time">' + time + '</td><td class="M clickable"></td><td class="T clickable"></td><td class="W clickable"></td><td class="R clickable"></td><td class="F clickable"></td><td class="S clickable"></td><td class="Su clickable"></td>');
 
 	}
 }
