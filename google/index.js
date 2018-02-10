@@ -1,26 +1,9 @@
 $(document).ready(function () {
 	initCalendar();
 
-	$(".course_hide_show_btn").click(function () {
-		$(this).parent().children(".course_details").toggle();
-		$(this).parent().parent().children(".course_section_list").toggle();
-		if ($(this).parent().children(".course_details").is(":visible")) {
-			$(this).html("Hide");
-		}
-		else {
-			$(this).html("Show");
-		}
-
-	});
 
 // Updated upstream
-	$("#show_schedule_btn").click(function () {
-		$(".list").toggleClass("moveDown");
-		const off = "Filter by Time";
-		const on = "Hide Time Filter";
 
-		$(this).text($(this).text().trim() === off ? on : off);
-	});
 
 
 	$("#clear_schedule_btn").click(function () {
