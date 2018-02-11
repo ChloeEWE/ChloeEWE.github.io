@@ -9,6 +9,21 @@ h1, h2, h3, h4, h5 {
 
 }
 
+
+header h1, header h2{
+    display:inline;
+}
+
+header h2{
+        font-size: 60px;
+    margin: 0px;
+    display: inline;
+    position: relative;
+    bottom: -30px;
+    left: -35px;
+    color: #999 !important;
+}
+
 #topLogo{
     height: 50px;
 }

@@ -2,6 +2,7 @@
     width: 400px;
     background-color: #eee;
     color: #444;
+    transition: .2s;
 }
 
 
@@ -58,4 +59,10 @@
     
         width: 400px;
     background-color: #494;
+}
+
+.room:hover{
+    background-color: #E1281A !important;
+    color: white;
+    transition: .2s;
 }

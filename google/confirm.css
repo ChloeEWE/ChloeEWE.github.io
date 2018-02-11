@@ -6,6 +6,7 @@ h2{
 
 .btn{
     background-color: #444;
-    width: 400px;
+    width: 200px;
     text-align: center;
+    margin-left: 30px;
 }
