@@ -51,19 +51,20 @@ function initCalendar() {
 
 function setReserved(){
     $("tr.8A").children().addClass("reserved");
-}
-
-$.getJSON( "reserved.json", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
+    $.getJSON( "reserved.json", function( data ) {
+    var items = [];
+    $.each( data, function( key, val ) {
     items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
- 
-  $( "<ul/>", {
+    });
+
+    $( "<ul/>", {
     "class": "my-new-list",
     html: items.join( "" )
-  }).appendTo( "body" );
+    }).appendTo( "body" );
 });
+}
+
+
 
 //Calendar stuff
 var leftButtonDown = false;
