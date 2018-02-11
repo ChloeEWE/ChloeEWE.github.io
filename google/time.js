@@ -33,9 +33,9 @@ $(document).ready(function () {
 
 
 function initCalendar() {
-	for (var i = 0; i < 13; i++) {
-		var divide = Math.floor(i ) + 8;
-		var ampm = (i < 4) ? "A" : "P";
+	for (var i = 0; i < 8; i++) {
+		var divide = Math.floor(i ) + 10;
+		var ampm = (i < 2) ? "A" : "P";
 		var mod = ":00";
 		divide = (divide > 12) ? (divide - 12) : (divide);
 
@@ -46,7 +46,8 @@ function initCalendar() {
 		$("#time_table")
 			.append('<tr class=' + time + '><td class="time"><span>' + time + '</span></td><td class="M clickable"></td><td class="T clickable"></td><td class="W clickable"></td><td class="R clickable"></td><td class="F clickable"></td><td class="S clickable"></td><td class="Su clickable"></td></tr>');
 
-	}
+	}$("#time_table")
+			.append('<tr class="6P"><td class="time"><span>6P</span></td></tr>');
     setReserved();
     
 }

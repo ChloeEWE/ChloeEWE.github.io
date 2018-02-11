@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Course Listings</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins|VT323" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="time.css">
+</head>
+<body>
+    
+
+
+    
+        <header>
+
+ <img id = "topLogo" src="bigLogo.png"/><h1> Room Reserve</h1>
+    
+    </header>
+
+		<!-- Start Courses Section -->
+
+			<div id="scheduleContainer" class="collapse">
+				<div id="time_container" class="align-self-right">
+					<div id="calendar_container">
+						<table id="time_table" class="unselectable">
+							<tr>
+								<th class="time"></th>
+								<th>Monday</th>
+								<th>Tuesday</th>
+								<th>Wednesday</th>
+								<th>Thursday</th>
+								<th>Friday</th>
+								<th>Saturday</th>
+                                <th>Sunday</th>
+							</tr>
+						</table>
+					</div>
+
+					<div id="worksheet_container">
+                        <div>
+
+                            <span>Highlight times by clicking and</span>
+                            <br>
+                            <span> dragging sections of the schedule</span>
+                            <br>
+						<button id="clear_schedule_btn" class="btn btn-primary btn-block">Clear Selection</button>
+                            <br>
+                            <a href="index.html">
+                        <button  id="go_back_btn" class="btn btn-primary btn-block">Go Back</button>
+                                </a>
+                            <br>
+                            <a href="confirm.html">
+                        <button id="confirm_btn" class="btn btn-primary btn-block">Finalize Reservation</button>
+                            </a>
+                            </div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="select2.min.js"></script>
+    <script src="reserved.json"></script>
+<script src="time.js"></script>
+</body>
+</html>

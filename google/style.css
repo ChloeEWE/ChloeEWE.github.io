@@ -1,65 +1,64 @@
-
-/*Stuff for schedule*/
-.isActive {
-  background-color: #7fd0ff }
-
-.unselectable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+ p{
+    color: #2A2A2A;
+     
 }
 
-.no-bullets {
-  list-style-type: none; }
+h1, h2, h3, h4, h5 {
+/*    color: #E1281A;*/
+    font-family: 'Poppins', sans-serif;
 
-#searchText {
-  width: 95%; }
-
-/*# sourceMappingURL=style.css.map */
-
-#fit_checkbox{
-  margin-top: 6px;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-weight: bold;
-}
-
-#time_table tr {
+#topLogo{
     height: 50px;
-
-}
-table, td {
-    border-collapse: collapse;
-    border: 1px solid black;
 }
 
-th {
-    color: red;
-    width: 100px;
+h1{
+    font-size: 50px;
+    color: #2A2A2A;
 }
 
-table{
-    min-width: 850px;
+html{
+    padding-top: 0px;
+    min-width: 1500px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.reserved{
-    background-color: #f00;
+body{
+    background-color: white;
+    min-width: 1500px;
 }
-
-td{
+header #topLogo{
+    width: 120px; 
+    height: 120px;
+    float:left;
+        position: relative;
+    bottom: -3px;
     
+}
+
+header h1{
+    font-size: 80px;
+    margin: 0px;
+    display: inline;
+    position: relative;
+    bottom: -30px;
+    left: -35px;
     
 }
 
-td.time{
-    background-color: #eee;
+header{
+    margin-top: 30px;
+    margin-left: 30px;
+    border-bottom: #E1281A 10px solid;
+    padding-bottom: 0px;
 }
-td.time span{
-     position: relative;
-     top: -25px;
-    right: 3px;
-     float: right;
+
+.btn{
+    border:none;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    height: 100px;
+    color: white;
 }

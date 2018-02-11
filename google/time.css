@@ -1,0 +1,121 @@
+
+/*Stuff for schedule*/
+.isActive {
+  background-color: #E1281A !important;
+    border-collapse: collapse;
+    border: #E1281A 2px solid;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-bullets {
+  list-style-type: none; }
+
+#searchText {
+  width: 95%; }
+
+/*# sourceMappingURL=style.css.map */
+
+#fit_checkbox{
+  margin-top: 6px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-weight: bold;
+}
+
+#time_table tr {
+    height: 50px;
+    
+}
+table, td {
+}
+
+th {
+    color: red;
+    width: 100px;
+}
+
+table{
+    min-width: 800px;
+    margin-top: 20px;
+}
+
+.reserved{
+    background-image:url(qrest.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    background: repeating-linear-gradient(
+      45deg,
+      #eee,
+      #eee 10px,
+      #ddd 10px,
+      #ddd 20px
+    );
+    
+}
+
+td.clickable{   
+    background-color: #eee;
+}
+
+td.time, th.time{
+    font-family: 'VT323', monospace;
+    width: 1px !important;
+}
+td.time span{
+     position: relative;
+     top: -25px;
+    right: 3px;
+     float: right;
+}
+
+#calendar_container{
+    float:left;
+    display:block;
+    margin-left: 30px;
+}
+
+#worksheet_container{
+    float:left;
+    display:block;
+    margin-top: 70px;
+    margin-left: 10px;
+    height: 800px;
+    padding-top: 20px;
+}
+
+#worksheet_container span{
+    float:left;
+    
+}
+td {
+    border-collapse: collapse;
+}
+#find_room_btn{
+    width: 400px;
+    background-color: #E1281A;
+}
+
+#clear_schedule_btn, #go_back_btn{
+    width: 200px;
+    background-color: #2A2A2A;
+}
+
+#clear_schedule_btn{
+    margin-top: 30px;
+    
+}
+
+#confirm_btn{
+    
+        width: 400px;
+    background-color: #494;
+}

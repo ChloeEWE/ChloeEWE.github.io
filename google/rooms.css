@@ -1,0 +1,61 @@
+.room {
+    width: 400px;
+    background-color: #eee;
+    color: #444;
+}
+
+
+#room_list div{
+    height: 440px;
+    margin-left: 10px;
+    float: left;
+}
+
+#room_list {
+    margin-left:  20px;
+
+}
+
+#action_list .btn{
+    margin-left: 10px;
+    float: left;
+}
+
+#action_list{
+    margin-left: 10px;
+    float: left;
+    width: 410px;
+    height: 440px;
+    padding-top: 220px;
+}
+
+#select_room{
+    background-color: #494;
+    
+    background-color: #E1281A;
+    width: 400px;
+}
+
+#confirm_room{
+    background-color: #494;
+    
+    background-color: #E1281A;
+    width: 400px;
+}
+
+
+#go_back_btn{
+    background-color: #2A2A2A;
+    width: 200px;
+}
+
+.isActive {
+    background-color: #E1281A !important;
+    color: white !important;
+}
+
+#confirm_btn{
+    
+        width: 400px;
+    background-color: #494;
+}
