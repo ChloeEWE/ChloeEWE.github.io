@@ -38,16 +38,32 @@ function initCalendar() {
 		divide = (divide > 12) ? (divide - 12) : (divide);
 
 		var time = divide.toString();
-		time += mod + ampm;
+		time += ampm;
 		// console.log(time);
 
 		$("#time_table")
-			.append('<tr class=' + time + '><td class="time">' + time + '</td><td class="M clickable"></td><td class="T clickable"></td><td class="W clickable"></td><td class="R clickable"></td><td class="F clickable"></td><td class="S clickable"></td><td class="Su clickable"></td>');
+			.append('<tr class=' + time + '><td class="time"><span>' + time + '</span></td><td class="M clickable"></td><td class="T clickable"></td><td class="W clickable"></td><td class="R clickable"></td><td class="F clickable"></td><td class="S clickable"></td><td class="Su clickable"></td></tr>');
 
 	}
+    setReserved();
     
-    $(".R").addClass("unselectable");
 }
+
+function setReserved(){
+    $("tr.8A").children().addClass("reserved");
+}
+
+$.getJSON( "reserved.json", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
 
 //Calendar stuff
 var leftButtonDown = false;
@@ -94,7 +110,7 @@ $(document).mousemove(function (e) {
 
 	if ((p === 'time_table') && leftButtonDown) {
 		// checkCourseSchedule();
-		if (!$(t).hasClass('time') && $(t)[0].nodeName !== "TH") {
+		if (!$(t).hasClass('time') && $(t)[0].nodeName !== "TH" && !$(t).hasClass('reserved')) {
 
 			// $(t).addClass("changed");
 			if (!$(t).hasClass('isActive') && adding) {
@@ -119,7 +135,7 @@ $(document).click(function (e) {
 
 	if ((p === 'time_table')) {
 		// checkCourseSchedule();
-		if (!$(t).hasClass('time') && $(t)[0].nodeName !== "TH" && !$(t).hasClass("changed")) {
+		if (!$(t).hasClass('time') && $(t)[0].nodeName !== "TH" && !$(t).hasClass("changed") && !$(t).hasClass('reserved')) {
 
 			$(t).addClass("changed");
 			if (!$(t).hasClass('isActive')) {

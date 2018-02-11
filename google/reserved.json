@@ -1,0 +1,8 @@
+const reserved = [
+    {"Time": "9A", "Day": "T"},
+    {"Time": "10A", "Day": "T"},
+    {"Time": "11A", "Day": "T"},
+    {"Time": "11A", "Day": "R"},
+    {"Time": "3P", "Day": "Su"},
+    {"Time": "4P", "Day": "Su"},
+];

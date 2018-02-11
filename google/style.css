@@ -8,7 +8,8 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .no-bullets {
   list-style-type: none; }
@@ -30,11 +31,34 @@
     height: 50px;
 
 }
-table, th, td {
+table, td {
     border-collapse: collapse;
     border: 1px solid black;
 }
 
 th {
-    margin-bottom: 20px;
+    color: red;
+    width: 100px;
+}
+
+table{
+    min-width: 850px;
+}
+
+.reserved{
+}
+
+td{
+    
+    
+}
+
+td.time{
+    background-color: #eee;
+}
+td.time span{
+     position: relative;
+     top: -25px;
+    right: 3px;
+     float: right;
 }
