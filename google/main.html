@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Course Listings</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+		<!-- Start Courses Section -->
+
+			<div id="scheduleContainer" class="collapse">
+				<div id="time_container" class="align-self-right">
+					<div id="calendar_container">
+						<table id="time_table" class="unselectable">
+							<tr>
+								<th></th>
+								<th>Monday</th>
+								<th>Tuesday</th>
+								<th>Wednesday</th>
+								<th>Thursday</th>
+								<th>Friday</th>
+								<th>Saturday</th>
+                                <th>Sunday</th>
+							</tr>
+						</table>
+					</div>
+
+					<div id="worksheet_container">
+
+						<p>Highlight times by clicking and dragging sections of the schedule</p>
+						<button id="clear_schedule_btn" class="btn btn-primary btn-block">Clear Highlighted</button>
+					</div>
+				</div>
+			</div>
+			<div id="course_list" class="list"></div>
+
+
+
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="select2.min.js"></script>
+<script src="reserved.json"></script>
+<script src="main.js"></script>
+</body>
+</html>

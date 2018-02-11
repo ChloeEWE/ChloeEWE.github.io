@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 	initCalendar();
 
@@ -33,7 +35,7 @@ $(document).ready(function () {
 function initCalendar() {
 	for (var i = 0; i < 13; i++) {
 		var divide = Math.floor(i ) + 8;
-		var ampm = (i < 8) ? "A" : "P";
+		var ampm = (i < 4) ? "A" : "P";
 		var mod = ":00";
 		divide = (divide > 12) ? (divide - 12) : (divide);
 
@@ -50,19 +52,19 @@ function initCalendar() {
 }
 
 function setReserved(){
-    $("tr.8A").children().addClass("reserved");
-    $.getJSON( "reserved.json", function( data ) {
-    var items = [];
-    $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-    });
-
-    $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-    }).appendTo( "body" );
+    
+$.each(reserved, function(i, res){
+    var time = "tr."+res.Time;
+    var day = "."+res.Day;
+    console.log(time + day);
+    $(time).children(day).addClass("reserved");
+                          
 });
+
 }
+
+
+
 
 
 
